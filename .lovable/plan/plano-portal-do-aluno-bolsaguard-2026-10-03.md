@@ -1,4 +1,4 @@
-# Plano — Portal do Aluno BolsaGuard
+# Plano — Portal do Aluno BolsaID
 
 ## Resultado
 Criar uma demonstração interativa do portal do aluno na página inicial, baseada no texto enviado. O fluxo inclui entrada simulada, painel acadêmico e financeiro, pagamento demonstrativo em USDC e histórico de mensalidades e renovações.

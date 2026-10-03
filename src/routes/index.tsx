@@ -11,9 +11,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Portal do Aluno | BolsaGuard" },
-      { name: "description", content: "Acompanhe sua bolsa, mensalidades e histórico acadêmico no portal demonstrativo BolsaGuard." },
-      { property: "og:title", content: "Portal do Aluno | BolsaGuard" },
+      { title: "Portal do Aluno | BolsaID" },
+      { name: "description", content: "Acompanhe sua bolsa, mensalidades e histórico acadêmico no portal demonstrativo BolsaID." },
+      { property: "og:title", content: "Portal do Aluno | BolsaID" },
       { property: "og:description", content: "Portal demonstrativo para acompanhar bolsa, mensalidades e histórico acadêmico." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -59,7 +59,7 @@ function StudentPortal() {
               <div className="w-full max-w-[430px]">
                 <div className="mb-10 flex size-14 items-center justify-center rounded-lg border border-border bg-card text-primary"><GraduationCap className="size-7" strokeWidth={1.7} /></div>
                 <p className="mb-3 text-xs font-semibold uppercase text-primary">Acesso do estudante</p>
-                <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">BolsaGuard<br />Portal do Aluno</h1>
+                <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">BolsaID<br />Portal do Aluno</h1>
                 <p className="mt-4 text-sm leading-6 text-muted-foreground">Sua bolsa, seus pagamentos e seu histórico em um só lugar.</p>
                 <div className="mt-9 border-t border-border pt-7">
                   <Button size="lg" onClick={() => { setSignedIn(true); setSection("inicio"); }} className="h-12 w-full justify-between rounded-md px-5 text-sm shadow-none">
@@ -67,7 +67,7 @@ function StudentPortal() {
                   </Button>
                   <div className="mt-5 flex items-start gap-3 text-xs leading-5 text-muted-foreground">
                     <ShieldCheck className="mt-0.5 size-4 shrink-0 text-positive" />
-                    <p>Uma carteira Solana segura seria criada e vinculada à sua conta acadêmica. Nesta demonstração, o acesso e a carteira são simulados.</p>
+                    <p>O acesso e o identificador da conta são simulados nesta demonstração. Nenhuma carteira ou conta blockchain é conectada ou criada.</p>
                   </div>
                 </div>
               </div>
@@ -97,7 +97,7 @@ function StudentPortal() {
                 <div className="lg:hidden"><Brand /></div>
                 <div className="hidden lg:block"><span className="text-sm text-muted-foreground">Portal do Aluno</span><span className="mx-2 text-muted-foreground">/</span><span className="text-sm font-medium">{nav.find((item) => item.id === section)?.label}</span></div>
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="hidden items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs text-muted-foreground sm:flex"><Wallet className="size-4 text-primary" /><span>Carteira de exemplo: <strong className="font-medium text-foreground">7xV...3pQ</strong></span></div>
+                  <div className="hidden items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs text-muted-foreground sm:flex"><Wallet className="size-4 text-primary" /><span>Identificador de demonstração: <strong className="font-medium text-foreground">BG-7X3PQ</strong></span></div>
                   {themeButton}
                   <Button variant="outline" size="icon" className="border-border bg-card shadow-none hover:bg-muted lg:hidden" aria-label="Sair" title="Sair" onClick={() => { setSignedIn(false); setSection("inicio"); setPaymentStep("idle"); }}><LogOut /></Button>
                 </div>
@@ -111,7 +111,7 @@ function StudentPortal() {
 
             <main className="mx-auto max-w-[1380px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-12">
               <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
-                <div><p className="mb-2 text-xs font-medium uppercase text-muted-foreground">{section === "inicio" ? "Visão geral" : "Portal do aluno"}</p><h1 className="text-[28px] font-semibold leading-tight sm:text-[34px]">{section === "inicio" ? "Olá, Ana!" : nav.find((item) => item.id === section)?.label}</h1><p className="mt-2 text-sm text-muted-foreground">{section === "inicio" ? "Aqui está o resumo da sua vida acadêmica e financeira." : section === "pagamento" ? "Confira sua mensalidade e o desconto da bolsa." : section === "historico" ? "Seus pagamentos e renovações em um só lugar." : "Seus dados acadêmicos e sua carteira de exemplo."}</p></div>
+                <div><p className="mb-2 text-xs font-medium uppercase text-muted-foreground">{section === "inicio" ? "Visão geral" : "Portal do aluno"}</p><h1 className="text-[28px] font-semibold leading-tight sm:text-[34px]">{section === "inicio" ? "Olá, Ana!" : nav.find((item) => item.id === section)?.label}</h1><p className="mt-2 text-sm text-muted-foreground">{section === "inicio" ? "Aqui está o resumo da sua vida acadêmica e financeira." : section === "pagamento" ? "Confira sua mensalidade e o desconto da bolsa." : section === "historico" ? "Seus pagamentos e renovações em um só lugar." : "Seus dados acadêmicos e seu identificador de demonstração."}</p></div>
                 <span className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs text-muted-foreground"><CircleHelp className="size-4" /> Ambiente demonstrativo</span>
               </div>
 
@@ -119,7 +119,7 @@ function StudentPortal() {
                 <div className="grid gap-4 md:grid-cols-3">
                   <Snapshot icon={GraduationCap} label="Perfil acadêmico" value="ProUni 50%" note="ana.santos@aurora.edu.br" badge="Bolsa ativa" />
                   <Snapshot icon={Clock3} label="Próxima renovação" value="10 dez 2026" note="Semestre 2027.1" />
-                  <Snapshot icon={ArrowDownLeft} label="Total economizado" value="3.000 USDC" note="Com sua bolsa de estudos" />
+                  <Snapshot icon={ArrowDownLeft} label="Desconto recebido no mês" value="R$ 50" note="Com sua bolsa de estudos" />
                 </div>
                 <div className="mt-9 grid gap-8 xl:grid-cols-[minmax(0,1.65fr)_minmax(270px,1fr)]">
                   <Invoice paymentStep={paymentStep} setPaymentStep={setPaymentStep} />
@@ -131,7 +131,7 @@ function StudentPortal() {
 
               {section === "historico" && <div className="max-w-[1000px] space-y-9"><div><h2 className="mb-5 text-lg font-semibold">Pagamentos</h2><Activity paid={paymentStep === "paid"} /></div><div><h2 className="mb-5 text-lg font-semibold">Renovações da bolsa</h2><div className="overflow-hidden rounded-md border border-border bg-card"><HistoryRow title="Semestre 2026.2" subtitle="Bolsa ProUni 50% renovada" date="10 jun 2026" /><HistoryRow title="Semestre 2026.1" subtitle="Bolsa ProUni 50% renovada" date="12 dez 2025" last /></div></div></div>}
 
-              {section === "perfil" && <div className="max-w-[840px]"><div className="grid gap-4 sm:grid-cols-2"><InfoCard label="Nome completo" value="Ana Santos" icon={UserRound} /><InfoCard label="E-mail institucional" value="ana.santos@aurora.edu.br" icon={BookOpen} /><InfoCard label="Bolsa de estudos" value="ProUni 50%" icon={GraduationCap} /><InfoCard label="Carteira de exemplo" value="7xV...3pQ" icon={Wallet} /></div><div className="mt-6 flex items-start gap-3 border-t border-border pt-6 text-sm leading-6 text-muted-foreground"><ShieldCheck className="mt-1 size-4 shrink-0 text-positive" /><p>Nesta versão, a credencial e a carteira são apenas ilustrativas. Nenhum dado foi verificado na blockchain.</p></div></div>}
+              {section === "perfil" && <div className="max-w-[840px]"><div className="grid gap-4 sm:grid-cols-2"><InfoCard label="Nome completo" value="Ana Santos" icon={UserRound} /><InfoCard label="E-mail institucional" value="ana.santos@aurora.edu.br" icon={BookOpen} /><InfoCard label="Bolsa de estudos" value="ProUni 50%" icon={GraduationCap} /><InfoCard label="Identificador de demonstração" value="BG-7X3PQ" icon={Wallet} /></div><div className="mt-6 flex items-start gap-3 border-t border-border pt-6 text-sm leading-6 text-muted-foreground"><ShieldCheck className="mt-1 size-4 shrink-0 text-positive" /><p>Nesta versão, a credencial e o identificador são apenas ilustrativos. Nenhum dado foi verificado na blockchain.</p></div></div>}
             </main>
           </div>
         )}
@@ -141,7 +141,7 @@ function StudentPortal() {
 }
 
 function Brand() {
-  return <div className="flex items-center gap-2.5"><div className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground"><GraduationCap className="size-5" strokeWidth={2} /></div><span className="text-[17px] font-bold">BolsaGuard<span className="text-primary">.</span></span></div>;
+  return <div className="flex items-center gap-2.5"><div className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground"><GraduationCap className="size-5" strokeWidth={2} /></div><span className="text-[17px] font-bold">BolsaID<span className="text-primary">.</span></span></div>;
 }
 
 function Snapshot({ icon: Icon, label, value, note, badge }: { icon: typeof GraduationCap; label: string; value: string; note: string; badge?: string }) {
@@ -153,7 +153,7 @@ function Invoice({ paymentStep, setPaymentStep }: { paymentStep: "idle" | "confi
     <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border pb-6"><div><div className="mb-2 flex size-10 items-center justify-center rounded-md bg-secondary text-primary"><CreditCard className="size-5" /></div><h2 className="mt-4 text-lg font-semibold">Fatura da mensalidade</h2><p className="mt-1 text-xs text-muted-foreground">Referência: outubro de 2026</p></div><span className={`rounded border px-2.5 py-1.5 text-xs font-medium ${paymentStep === "paid" ? "border-positive/30 bg-positive/10 text-positive" : "border-border bg-muted text-muted-foreground"}`}>{paymentStep === "paid" ? "Pago na demonstração" : "Aguardando pagamento"}</span></div>
     <div className="space-y-5 py-6"><div className="flex justify-between gap-4 text-sm"><span className="text-muted-foreground">Mensalidade base</span><span className="font-medium">1.000 USDC</span></div><div className="flex justify-between gap-4 text-sm"><span className="text-muted-foreground">Desconto da bolsa (50%)</span><span className="font-medium text-positive">− 500 USDC</span></div><div className="flex items-start gap-2.5 rounded-md border border-positive/25 bg-positive/5 px-3 py-3 text-xs leading-5 text-positive"><ShieldCheck className="mt-0.5 size-4 shrink-0" /><span>Credencial de bolsa 50% · verificação simulada</span></div></div>
     <div className="flex items-end justify-between gap-3 border-t border-border pt-5"><span className="text-sm font-medium">Total a pagar</span><span className="text-2xl font-semibold sm:text-[28px]">500 <span className="text-sm text-muted-foreground">USDC</span></span></div>
-    {paymentStep === "confirm" ? <div className="mt-7 rounded-md border border-border bg-muted p-4"><p className="text-sm font-semibold">Confirmar pagamento de exemplo?</p><p className="mt-1 text-xs leading-5 text-muted-foreground">Esta ação apenas altera a demonstração. Nenhum USDC será transferido.</p><div className="mt-4 flex flex-wrap gap-2"><Button onClick={() => setPaymentStep("paid")} className="shadow-none"><Check /> Confirmar simulação</Button><Button variant="outline" onClick={() => setPaymentStep("idle")} className="bg-card shadow-none">Cancelar</Button></div></div> : paymentStep === "paid" ? <div className="mt-7 flex items-center gap-2 rounded-md border border-positive/30 bg-positive/10 px-4 py-3 text-sm font-medium text-positive"><Check className="size-4" /> Pagamento demonstrativo registrado no histórico</div> : <Button size="lg" onClick={() => setPaymentStep("confirm")} className="mt-7 h-12 w-full justify-between px-5 shadow-none"><span className="flex items-center gap-2"><Wallet className="size-4" /> Pagar 500 USDC na Solana</span><ChevronRight /></Button>}
+    {paymentStep === "confirm" ? <div className="mt-7 rounded-md border border-border bg-muted p-4"><p className="text-sm font-semibold">Confirmar pagamento de exemplo?</p><p className="mt-1 text-xs leading-5 text-muted-foreground">Esta ação apenas altera a demonstração. Nenhum USDC será transferido.</p><div className="mt-4 flex flex-wrap gap-2"><Button onClick={() => setPaymentStep("paid")} className="shadow-none"><Check /> Confirmar simulação</Button><Button variant="outline" onClick={() => setPaymentStep("idle")} className="bg-card shadow-none">Cancelar</Button></div></div> : paymentStep === "paid" ? <div className="mt-7 flex items-center gap-2 rounded-md border border-positive/30 bg-positive/10 px-4 py-3 text-sm font-medium text-positive"><Check className="size-4" /> Pagamento demonstrativo registrado no histórico</div> : <Button size="lg" onClick={() => setPaymentStep("confirm")} className="mt-7 h-12 w-full justify-between px-5 shadow-none"><span className="flex items-center gap-2"><Wallet className="size-4" /> Simular pagamento de 500 USDC</span><ChevronRight /></Button>}
     <p className="mt-4 text-center text-[11px] text-muted-foreground">Simulação · Não realiza transações reais</p>
   </section>;
 }

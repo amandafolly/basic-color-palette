@@ -9,5 +9,5 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep the BolsaGuard prototype as a single client-state page on `/`; it is a demonstrative flow and must not imply real authentication, wallets, or Solana transfers.
+- Keep the BolsaID prototype as a single client-state page on `/`; it is a demonstrative flow and must not imply real authentication, wallets, or Solana transfers.
 - Define the portal's light/dark semantic palette in `src/styles.css`; this keeps all interface colors theme-aware.
